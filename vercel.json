@@ -1,12 +1,27 @@
 {
-    "version": 2,
-    "routes": [{
-        "handle": "filesystem"
-      },
-      {
-        "src": "/(.*)",
-        "status": 404,
-        "dest": "/"
-      }
-    ]
-  }
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Permissions-Policy",
+          "value": "interest-cohort=()"
+        }
+      ]
+    }
+  ],
+  "github": {
+    "silent": true
+  },
+  "version": 2,
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "/"
+    }
+  ]
+}
